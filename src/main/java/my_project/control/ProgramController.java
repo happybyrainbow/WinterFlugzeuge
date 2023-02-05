@@ -2,7 +2,7 @@ package my_project.control;
 
 import KAGO_framework.control.ViewController;
 import KAGO_framework.model.abitur.datenstrukturen.Queue;
-import my_project.model.Ball;
+import my_project.model.*;
 import my_project.view.InputManager;
 
 import java.awt.event.MouseEvent;
@@ -35,9 +35,34 @@ public class ProgramController {
      * Sie erstellt die leeren Datenstrukturen, zu Beginn nur eine Queue
      */
     public void startProgram() {
-        // Erstelle ein Objekt der Klasse Ball und lasse es zeichnen
-        Ball ball1 = new Ball(150,150);
-        viewController.draw(ball1);
+
+
+
+       HinterGrund hinterGrund = new HinterGrund(0,0);
+       viewController.draw(hinterGrund);
+
+        End end1 = new End();
+        viewController.draw(end1);
+
+        Player1 player1 = new Player1(20, 300, end1);
+        viewController.draw(player1);
+
+        Player2 player2 = new Player2(695,400, end1);
+        viewController.draw(player2);
+
+        Snowballs snowballs1 = new Snowballs(20,0, player1, player2, end1);
+        viewController.draw(snowballs1);
+
+        Wolken wolke10 = new Wolken();
+        viewController.draw(wolke10);
+
+        Mountains mountain = new Mountains();
+        viewController.draw(mountain);
+
+
+        for (int i = 0; i < wolke10.getArray().size(); i++){
+            viewController.draw(wolke10.getArray().get(i));
+        }
 
     }
 
@@ -46,6 +71,10 @@ public class ProgramController {
      * @param dt Zeit seit letzter Frame
      */
     public void updateProgram(double dt){
+
+
+
+
 
     }
 }
